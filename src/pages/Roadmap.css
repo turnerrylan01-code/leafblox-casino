@@ -1,0 +1,257 @@
+.roadmap-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.roadmap-progress-header {
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.info-icon {
+  color: var(--text-muted);
+  font-size: 14px;
+  cursor: help;
+}
+
+.roadmap-bar-container { margin-bottom: 16px; }
+.roadmap-bar {
+  height: 12px;
+  background: var(--bg-input);
+  border-radius: 6px;
+  position: relative;
+  overflow: visible;
+  margin-bottom: 8px;
+}
+.roadmap-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple-dark), var(--purple-light));
+  border-radius: 6px;
+  box-shadow: 0 0 12px var(--purple-glow);
+}
+.roadmap-node {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: var(--bg-input);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+}
+.roadmap-node.reached {
+  background: var(--purple);
+  border-color: var(--purple-light);
+  box-shadow: 0 0 8px var(--purple-glow);
+}
+.roadmap-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.dump-progress {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.dump-bar {
+  width: 200px;
+  height: 4px;
+  background: var(--bg-input);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.dump-fill {
+  height: 100%;
+  background: var(--text-muted);
+  border-radius: 2px;
+}
+
+.milestone-cards {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  margin-bottom: 32px;
+  padding-bottom: 8px;
+}
+.milestone-card {
+  flex: 0 0 160px;
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-input) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.milestone-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 4px,
+    rgba(139, 92, 246, 0.05) 4px,
+    rgba(139, 92, 246, 0.05) 8px
+  );
+}
+.milestone-card.locked {
+  background: linear-gradient(180deg, rgba(60, 60, 80, 0.5) 0%, rgba(40, 40, 60, 0.5) 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.milestone-card.locked .milestone-amount {
+  color: rgba(255, 255, 255, 0.3);
+}
+.milestone-card.locked .milestone-title {
+  color: rgba(255, 255, 255, 0.3);
+}
+.milestone-card.locked .milestone-sub {
+  color: rgba(255, 255, 255, 0.2);
+}
+.lock-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 16px;
+  opacity: 0.5;
+}
+.milestone-amount {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--purple-light);
+}
+.milestone-title {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.milestone-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.milestone-btn {
+  margin-top: 8px;
+  padding: 6px 20px !important;
+  font-size: 12px !important;
+}
+.milestone-btn.locked {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  cursor: not-allowed;
+}
+
+.roadmap-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.info-col {
+  text-align: center;
+  padding: 16px;
+}
+.info-icon-box {
+  width: 36px;
+  height: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  font-size: 16px;
+}
+.info-col strong {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.info-col p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.contributors-section { margin-top: 16px; }
+.contributors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 16px;
+}
+.contributor-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+.rank-ribbon {
+  width: 28px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  border-radius: 4px;
+}
+.rank-ribbon.rank-1 { background: #dc2626; color: white; }
+.rank-ribbon.rank-2 { background: var(--purple); color: white; }
+.rank-ribbon.rank-3 { background: #92400e; color: white; }
+.rank-ribbon.rank-4, .rank-ribbon.rank-5 { background: var(--bg-input); color: var(--text-muted); border: 1px solid var(--border); }
+.contributor-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.contributor-name {
+  font-weight: 700;
+  font-size: 13px;
+}
+.top-badge {
+  background: var(--purple);
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.contributor-wagered {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .roadmap-info { grid-template-columns: 1fr; }
+}

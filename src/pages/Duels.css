@@ -1,0 +1,613 @@
+.duels {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 45px 10px;
+}
+
+.duels .duels-controls {
+  width: 1160px;
+  height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px;
+  border-radius: 10px;
+  background-color: #011828;
+  border: 1px solid #0c304c;
+}
+
+.duels .controls-title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.duels .controls-title svg {
+  margin-right: 12px;
+}
+
+.duels .controls-title span {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%), #ffffff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.duels .controls-actions {
+  display: flex;
+  align-items: center;
+}
+
+.duels .actions-amount {
+  width: 350px;
+  height: 50px;
+  position: relative;
+  margin-right: 25px;
+}
+
+.duels .actions-amount::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #04131f 0%, #223a4e 100%);
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+}
+
+.duels .actions-amount input {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  padding: 0 175px 0 43px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #07253a;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+  border: none;
+}
+
+.duels .actions-amount input::placeholder {
+  color: #5e768e;
+}
+
+.duels .amount-buttons {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(0, -50%);
+}
+
+.duels .amount-buttons button {
+  min-width: 45px;
+  height: 31px;
+  margin-right: 8px;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
+  transition: all .2s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.duels .amount-buttons button:hover {
+  transition-duration: .2s; 
+  opacity: .8;
+}
+
+.duels .amount-buttons button:active {
+  transition-duration: .2s;
+  scale: .9;
+}
+
+.duels .amount-buttons button.button-max {
+  filter: drop-shadow(0px 4px 25px rgba(1, 230, 169, 0.15)) drop-shadow(0px 4px 25px rgba(15, 41, 63, 0.35));
+}
+
+.duels .amount-buttons button:last-of-type {
+  margin-right: 0;
+}
+
+.duels .amount-buttons button .button-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #bbbfd0;
+  background-color: #214059;
+  clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 25%, 100% 75%, calc(100% - 4px) 100%, 4px 100%, 0 75%, 0 25%);
+}
+
+.duels .amount-buttons button.button-max .button-inner {
+  color: #ffffff;
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+}
+
+.duels .filter-count {
+  display: flex;
+  margin-right: 25px;
+}
+
+.duels .filter-count button {
+  width: 90px;
+  height: 50px;
+  position: relative;
+  margin-right: 8px;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.1));
+  transition: all .2s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.duels .filter-count button:hover {
+  transition-duration: .2s; 
+  opacity: .8;
+}
+
+.duels .filter-count button:active {
+  transition-duration: .2s;
+  scale: .9;
+}
+
+.duels .filter-count button::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #214059;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+}
+
+.duels .filter-count button.active::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #01e0a3 100%);
+}
+
+.duels .filter-count button .button-inner {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #07253a;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+  font-size: 12px;
+  font-weight: 700;
+  color: #bbbfd0;
+}
+
+.duels .filter-count button.active .button-inner {
+  background: radial-gradient(135.81% 81.75% at 83.06% 50%, rgba(0, 255, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(255deg, rgba(0, 255, 194, 0.05) -46.99%, rgba(0, 170, 109, 0.05) 100%);
+  color: #00ffc2;
+}
+
+.duels .controls-actions button.button-create {
+  width: 130px;
+  height: 50px;
+  filter: drop-shadow(0px 4px 25px rgba(1, 230, 169, 0.15)) drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.35));
+  transition: all .2s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.duels .button-create:hover {
+  transition-duration: .2s; 
+  opacity: .8;
+}
+
+.duels .button-create:active {
+  transition-duration: .2s;
+  scale: .9;
+}
+
+.duels .controls-actions button.button-create .button-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+  clip-path: polygon(7px 0, calc(100% - 7px) 0, 100% 25%, 100% 75%, calc(100% - 7px) 100%, 7px 100%, 0 75%, 0 25%);
+}
+
+.duels .duels-stats {
+  width: 1160px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.duels .stats-animation {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5e768e;
+}
+
+.duels .animation-toggle {
+  width: 45px;
+  height: 15px;
+  position: relative;
+  margin-right: 12px;
+  filter: drop-shadow(0px 4px 25px rgba(15, 41, 63, 0.35));
+  cursor: pointer;
+}
+
+.duels .animation-toggle::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000d16;
+  clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 25%, 100% 75%, calc(100% - 4px) 100%, 4px 100%, 0 75%, 0 25%);
+}
+
+.duels .animation-toggle::after {
+  content: '';
+  width: 25px;
+  height: 19px;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  background: #1c5064;
+  clip-path: polygon(3px 0, calc(100% - 3px) 0, 100% 25%, 100% 75%, calc(100% - 3px) 100%, 3px 100%, 0 75%, 0 25%);
+  transition: all 0.3s ease;
+}
+
+.duels .animation-toggle.toggle-active::after {
+  transform: translate(20px, 0);
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+}
+
+.duels .stats-info {
+  display: flex;
+  align-items: center;
+}
+
+.duels .info-buy,
+.duels .info-winnings,
+.duels .info-edge {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5e768e;
+}
+
+.duels .info-buy,
+.duels .info-winnings {
+  position: relative;
+  margin-right: 15px;
+  padding-right: 15px;
+}
+
+.duels .info-buy::before,
+.duels .info-winnings::before {
+  content: '';
+  width: 1px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  background-color: #144468;
+}
+
+.duels .info-winnings span {
+  font-weight: 700;
+}
+
+.duels .buy-value,
+.duels .winnings-value,
+.duels .edge-value {
+  margin-left: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #c1c1c1;
+}
+
+.duels .edge-value {
+  margin-left: 12px;
+}
+
+.duels .buy-value span,
+.duels .winnings-value span,
+.duels .edge-value span {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.duels .gradient-green {
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.duels .duels-games {
+  width: 1160px;
+  margin-top: 30px;
+}
+
+.duels .games-my,
+.duels .games-all {
+  width: 100%;
+}
+
+.duels .games-all {
+  margin-top: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #0c324e;
+}
+
+.duels .my-header,
+.duels .all-header {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #bbbfd0;
+}
+
+.duels .my-header::before,
+.duels .all-header::before {
+  content: '';
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  background-color: #0c324e;
+}
+
+.duels .my-header::before {
+  left: 120px;
+}
+
+.duels .all-header::before {
+  left: 125px;
+  right: 177px;
+}
+
+.duels .header-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #bbbfd0;
+}
+
+.duels .header-title span {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.duels .header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.duels .filter-sort {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #07253a;
+  border: 1px solid #0c304c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.duels .my-content {
+  width: 100%;
+  min-height: 75px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.duels .all-content {
+  max-height: 409px;
+  margin-top: 25px;
+  margin-right: -25px;
+  padding-right: 20px;
+  overflow-y: scroll;
+}
+
+.duels .all-content::-webkit-scrollbar {
+  width: 5px;
+  height: 0;
+}
+
+.duels .all-content::-webkit-scrollbar-track {
+  background-color: #0e3351;
+}
+
+.duels .all-content::-webkit-scrollbar-thumb {
+  background-color: #517795;
+}
+
+.duels .content-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.duels .game-element {
+  width: calc(33.33% - 13.33px);
+  height: 123px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(15, 49, 75, 0.25);
+  border: 1px solid rgba(20, 68, 104, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.duels .game-element:nth-child(3n) {
+  margin-right: 0;
+}
+
+.duels .element-amount {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.duels .element-players {
+  font-size: 12px;
+  font-weight: 600;
+  color: #bbbfd0;
+}
+
+.duels .content-empty {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5e768e;
+  background-color: rgba(2, 21, 39, 0.5);
+}
+
+@media only screen and (max-width: 1180px) {
+  .duels .duels-controls,
+  .duels .duels-stats,
+  .duels .duels-games {
+    width: 100%;
+  }
+
+  .duels .duels-controls {
+    padding: 12px 10px;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .duels {
+    padding: 25px 10px 45px 10px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .duels {
+    padding: 25px 10px 443px 10px;
+  }
+
+  .duels .duels-controls {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .duels .controls-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .duels .actions-amount {
+    width: calc(100% - 237px);
+  }
+
+  .duels .duels-stats {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .duels .stats-animation {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .duels .controls-actions {
+    flex-wrap: wrap;
+  }
+
+  .duels .actions-amount {
+    width: calc(100% - 92px);
+  }
+
+  .duels .controls-actions button.button-create {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .duels .actions-amount input {
+    padding: 0 70px 0 43px;
+  }
+
+  .duels .amount-buttons button {
+    display: none;
+    margin-right: 0;
+  }
+
+  .duels .amount-buttons button:first-child {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .duels .game-element {
+    width: calc(50% - 10px);
+  }
+
+  .duels .game-element:nth-child(3n) {
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+
+  .duels .game-element:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .duels .game-element {
+    width: 100%;
+    margin-right: 0 !important;
+  }
+
+  .duels .game-element:nth-child(2) {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,448 @@
+.upgrader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 10px;
+}
+
+.upgrader .upgrader-game {
+  width: 1200px;
+  display: flex;
+}
+
+.upgrader .game-controls,
+.upgrader .game-items {
+  width: 360px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 25px 20px 25px;
+  border-radius: 15px;
+  background: rgba(12, 63, 103, 0.2);
+  border: 1px dashed rgba(62, 109, 146, 0.35);
+}
+
+.upgrader .controls-title,
+.upgrader .items-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #5e768e;
+}
+
+.upgrader .controls-amount {
+  width: 100%;
+}
+
+.upgrader .amount-input {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  padding: 1px;
+}
+
+.upgrader .amount-input::before {
+  content: '';
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #04131f 0%, #223a4e 100%);
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+}
+
+.upgrader .amount-input input {
+  width: 100%;
+  height: 100%;
+  padding: 0 100px 0 43px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #031a2d;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+  border: none;
+}
+
+.upgrader .amount-input input::placeholder {
+  color: #5e768e;
+}
+
+.upgrader .controls-amount input[type='range'] {
+  width: 100%;
+  height: 10px;
+  margin-top: 16px;
+  border-radius: 5px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-apperance: none;
+  background: rgba(0, 0, 0, 0.35);
+  transition: all 0.03s ease;
+}
+
+.upgrader .controls-amount input[type='range']::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background-color: #ffffff;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.upgrader .controls-amount input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.upgrader .input-buttons {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(0, -50%);
+}
+
+.upgrader .input-buttons button {
+  width: 36px;
+  height: 27px;
+  margin-right: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.upgrader .input-buttons button:last-of-type {
+  margin-right: 0;
+}
+
+.upgrader .input-buttons button .button-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+  clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 25%, 100% 75%, calc(100% - 4px) 100%, 4px 100%, 0 75%, 0 25%);
+}
+
+.upgrader button.button-fair {
+  width: 112px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.upgrader button.button-fair .button-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #bbbfd0;
+  background: #214059;
+  transition: color 0.3s ease;
+  clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 25%, 100% 75%, calc(100% - 6px) 100%, 6px 100%, 0 75%, 0 25%);
+}
+
+.upgrader button.button-fair:hover .button-inner {
+  color: #ffffff;
+}
+
+.upgrader button.button-fair .button-inner svg {
+  margin-right: 6px;
+  fill: #bbbfd0;
+  transition: fill 0.3s ease;
+}
+
+.upgrader button.button-fair:hover .button-inner svg {
+  fill: #ffffff;
+}
+
+.upgrader .game-mid {
+  width: calc(100% - 720px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upgrader .mid-spinner {
+  width: 265px;
+  height: 265px;
+  position: relative;
+  border-radius: 50%;
+  padding: 1px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px dashed rgba(62, 109, 146, 0.35);
+}
+
+.upgrader .spinner-graph {
+  width: 270px;
+  height: 270px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upgrader .spinner-graph svg {
+  fill: none;
+  stroke-width: 0.3;
+  stroke-dashoffset: 25;
+  stroke: #00ffc2;
+}
+
+.upgrader .spinner-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #bbbfd0;
+}
+
+.upgrader .inner-chance {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.upgrader .inner-chance span {
+  color: #00ffc2;
+}
+
+.upgrader .inner-tickets {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(187, 191, 208, 0.5);
+}
+
+.upgrader button.button-toggle {
+  display: flex;
+  align-items: center;
+  margin-top: 19px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.upgrader button.button-toggle span {
+  margin-right: 4px;
+  color: #00ffc2;
+}
+
+.upgrader button.button-toggle.button-under span {
+  transform: rotate(180deg);
+}
+
+.upgrader button.button-upgrade {
+  width: 230px;
+  height: 48px;
+  position: relative;
+  margin-top: 14px;
+  padding: 1px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.upgrader button.button-upgrade:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #325baa;
+  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 25%, 100% 75%, calc(100% - 8px) 100%, 8px 100%, 0 75%, 0 25%);
+}
+
+.upgrader button.button-upgrade .button-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(97, 138, 241, 0.1) 0%, rgba(28, 99, 182, 0.1) 100%),
+              linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), #05233a;
+  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 25%, 100% 75%, calc(100% - 8px) 100%, 8px 100%, 0 75%, 0 25%);
+}
+
+.upgrader button.button-upgrade .button-inner span {
+  font-size: 14px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #618AF1 0%, #1C63B6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.upgrader .upgrader-items {
+  width: 1200px;
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(41, 114, 169, 0.16);
+}
+
+.upgrader .items-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.upgrader .header-search {
+  width: 300px;
+}
+
+.upgrader .header-search input {
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #07253a;
+  border: 1px solid rgba(20, 68, 104, 0.35);
+  border-radius: 5px;
+}
+
+.upgrader .header-search input::placeholder {
+  color: #5e768e;
+}
+
+.upgrader .header-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.upgrader .filter-amount,
+.upgrader .filter-sort {
+  height: 40px;
+  padding: 0 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #07253a;
+  border: 1px solid rgba(20, 68, 104, 0.35);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upgrader .items-content {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.upgrader .content-loading {
+  width: 100%;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5e768e;
+}
+
+.upgrader .content-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.upgrader .item-element {
+  width: calc(25% - 15px);
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(15, 49, 75, 0.25);
+  border: 1px solid rgba(20, 68, 104, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upgrader .element-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.upgrader .element-price {
+  font-size: 12px;
+  font-weight: 600;
+  color: #bbbfd0;
+}
+
+.upgrader .content-empty {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5e768e;
+}
+
+@media only screen and (max-width: 1250px) {
+  .upgrader .upgrader-game,
+  .upgrader .upgrader-items {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .upgrader {
+    padding: 25px 10px 45px 10px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .upgrader {
+    padding: 25px 10px 443px 10px;
+  }
+}
+
+@media only screen and (max-width: 545px) {
+  .upgrader .upgrader-game {
+    flex-direction: column;
+  }
+
+  .upgrader .game-controls,
+  .upgrader .game-items {
+    width: 100%;
+  }
+
+  .upgrader .game-mid {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .upgrader .item-element {
+    width: calc(50% - 10px);
+  }
+}

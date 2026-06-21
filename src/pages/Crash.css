@@ -1,0 +1,749 @@
+.crash-locked-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  border-radius: 25px;
+}
+
+.locked-message {
+  text-align: center;
+  z-index: 101;
+}
+
+.locked-title {
+  font-size: 48px;
+  font-weight: 900;
+  color: #e74c3c;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.locked-subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.crash {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 45px 10px;
+}
+
+.crash .crash-container {
+  width: 1120px;
+  border-radius: 25px;
+  background: radial-gradient(163.2% 163.2% at 50% -31.45%, rgba(0, 194, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(255deg, #07263d 0%, #07243a 100%);
+  box-shadow: 0px 4px 10px rgba(7, 26, 41, 0.25);
+  position: relative;
+}
+
+.crash .container-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.crash .data-left {
+  width: calc(100% - 290px);
+}
+
+.crash .crash-game {
+  width: 100%;
+  height: 460px;
+  position: relative;
+  border-radius: 15px;
+  background: linear-gradient(0deg, rgba(5, 31, 51, 0.4), rgba(5, 31, 51, 0.4)),
+    radial-gradient(100% 100% at 50% 50%,
+      rgba(156, 88, 223, 0.3) 0%,
+      rgba(0, 0, 0, 0) 100%),
+    rgba(112, 73, 197, 0.05);
+  border: 1px solid rgba(20, 68, 104, 0.35);
+  box-shadow: inset 0px 0px 35px rgba(0, 0, 0, 0.65);
+}
+
+.crash .game-info {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 15px;
+  left: 0;
+  padding: 0 20px;
+}
+
+.crash .info-network {
+  display: flex;
+  align-items: center;
+}
+
+.crash .info-network span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.crash .network-point {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%), #d9d9d9;
+  box-shadow: 0px 0px 8px #01dea0;
+}
+
+.crash .game-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2305192c' width='100' height='100'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.crash .inner-completed,
+.crash .inner-rolling,
+.crash .inner-waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.crash .inner-rolling {
+  position: relative;
+}
+
+.crash .completed-multiplier,
+.crash .rolling-multiplier {
+  line-height: 88px;
+  font-size: 84px;
+  font-weight: 700;
+  color: #f55046;
+}
+
+.crash .gradient-green {
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.crash .completed-over,
+.crash .rolling-payout {
+  font-size: 18px;
+  font-weight: 700;
+  color: #bbbfd0;
+}
+
+.crash .rolling-amount {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: -6px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+
+.crash .amount-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #bbbfd0;
+}
+
+.crash .amount-value span {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.crash .waiting-status {
+  text-align: center;
+  font-size: 54px;
+  font-weight: 800;
+  text-shadow: 0px 5px 3px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.crash .waiting-timer {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.crash .game-graph {
+  position: absolute;
+  top: 20px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+}
+
+.crash .info-profit {
+  display: flex;
+  align-items: center;
+}
+
+.crash .info-profit button {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.crash .crash-history {
+  width: 100%;
+  height: 35px;
+  position: relative;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.crash .crash-history::after {
+  content: '';
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(90deg, rgba(7, 44, 68, 0) 0%, #072c44 100%);
+  z-index: 1;
+}
+
+.crash .history-list {
+  display: flex;
+}
+
+.crash .history-element {
+  width: 35px;
+  height: 35px;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: rgba(7, 37, 59, 0.5);
+  border: 1px solid rgba(20, 68, 104, 0.35);
+}
+
+.crash .element-multiplier {
+  font-size: 12px;
+  font-weight: 700;
+  color: #bbbfd0;
+}
+
+.crash .crash-controls {
+  width: 275px;
+  height: 510px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #051f33;
+  border: 1px solid rgba(20, 68, 104, 0.35);
+}
+
+.crash .controls-mode {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crash .controls-mode button {
+  width: calc(50% - 7px);
+  height: 45px;
+  position: relative;
+  filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.35));
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.crash .controls-mode button:hover {
+  opacity: 0.8;
+}
+
+.crash .controls-mode button:active {
+  scale: .9;
+}
+
+.crash .controls-mode button::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #214059;
+  clip-path: polygon(9px 0, calc(100% - 9px) 0, 100% 25%, 100% 75%, calc(100% - 9px) 100%, 9px 100%, 0 75%, 0 25%);
+}
+
+.crash .controls-mode button.button-active::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #01e0a3 100%);
+}
+
+.crash .controls-mode button::after {
+  content: '';
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  background-color: #051f33;
+  clip-path: polygon(9px 0, calc(100% - 9px) 0, 100% 25%, 100% 75%, calc(100% - 9px) 100%, 9px 100%, 0 75%, 0 25%);
+}
+
+.crash .controls-mode button .button-inner {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 1px;
+  left: 1px;
+  background-color: #214059;
+  clip-path: polygon(9px 0, calc(100% - 9px) 0, 100% 25%, 100% 75%, calc(100% - 9px) 100%, 9px 100%, 0 75%, 0 25%);
+  z-index: 1;
+}
+
+.crash .controls-mode button.button-active .button-inner {
+  background: radial-gradient(135.81% 81.75% at 83.06% 50%, rgba(0, 255, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(255deg, rgba(0, 255, 194, 0.05) -46.99%, rgba(0, 170, 109, 0.05) 100%);
+}
+
+.crash .controls-mode button .button-inner span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #bbbfd0;
+}
+
+.crash .controls-mode button.button-active .button-inner span {
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.crash .controls-amount,
+.crash .controls-cashout {
+  width: 100%;
+  height: 51px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.crash .controls-amount::before,
+.crash .controls-cashout::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #04131f 0%, #223a4e 100%);
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+}
+
+.crash .controls-amount input,
+.crash .controls-cashout input {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  padding: 0 90px 0 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #07253b;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+  border: none;
+}
+
+.crash .controls-amount input {
+  padding: 0 90px 0 43px;
+}
+
+.crash .controls-amount input::placeholder,
+.crash .controls-cashout input::placeholder {
+  color: #5e768e;
+}
+
+.crash .cashout-buttons {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 50%;
+  right: 15px;
+  transform: translate(0, -50%);
+}
+
+.crash .cashout-buttons button {
+  width: 35px;
+  height: 27px;
+  filter: drop-shadow(0px 4px 25px rgba(1, 230, 169, 0.15)) drop-shadow(0px 4px 25px rgba(15, 41, 63, 0.35));
+  transition: all .2s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.crash .cashout-buttons button:hover {
+  opacity: 0.8;
+}
+
+.crash .cashout-buttons button:active {
+  scale: .95;
+}
+
+.crash .cashout-buttons button:first-of-type {
+  margin-right: 5px;
+}
+
+.crash .cashout-buttons button .button-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+  clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 25%, 100% 75%, calc(100% - 4px) 100%, 4px 100%, 0 75%, 0 25%);
+}
+
+.crash .controls-manual {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.crash .controls-manual button.button-cashout,
+.crash .controls-manual button.button-bet {
+  width: 100%;
+  height: 50px;
+  filter: drop-shadow(0px 4px 25px rgba(252, 163, 17, 0.15)) drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.35));
+  transition: all .2s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.crash .button-bet:hover {
+  opacity: 0.8;
+}
+
+.crash .button-bet:active {
+  scale: .9;
+}
+
+.crash .controls-manual button.button-bet {
+  filter: drop-shadow(0px 4px 25px rgba(1, 230, 169, 0.15)) drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.crash .controls-manual button.button-cashout:disabled {
+  cursor: not-allowed;
+}
+
+.crash .controls-manual button.button-cashout .button-inner,
+.crash .controls-manual button.button-bet .button-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(255deg, #fca311 0%, #ffb703 100%);
+  clip-path: polygon(7px 0, calc(100% - 7px) 0, 100% 25%, 100% 75%, calc(100% - 7px) 100%, 7px 100%, 0 75%, 0 25%);
+}
+
+.crash .controls-manual button.button-bet .button-inner {
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+}
+
+.crash .manual-bets {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.crash .bets-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(24, 72, 109, 0.5);
+}
+
+.crash .header-player {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #7a93ac;
+}
+
+.crash .header-player span {
+  margin-left: 5px;
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%), #ffffff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.crash .header-amount {
+  display: flex;
+  align-items: center;
+}
+
+.crash .amount-value {
+  font-size: 8px;
+  font-weight: 600;
+  color: #bbbfd0;
+}
+
+.crash .amount-value span {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.crash .bets-content {
+  width: 100%;
+  height: 167px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.crash .bets-content::before {
+  content: '';
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(5, 31, 51, 0) 0%, #051f33 100%);
+  z-index: 1;
+}
+
+.crash .content-list {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.crash .content-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.crash .content-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.crash .bet-element {
+  padding: 10px;
+  border-bottom: 1px solid rgba(24, 72, 109, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crash .element-amount {
+  font-size: 12px;
+  font-weight: 600;
+  color: #bbbfd0;
+}
+
+.crash .element-payout,
+.crash .element-multiplier {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.crash .element-payout.win {
+  color: #00ffc2;
+}
+
+.crash .element-multiplier {
+  color: #fca311;
+}
+
+.crash .element-pending {
+  font-size: 11px;
+  font-weight: 600;
+  color: #7a93ac;
+}
+
+.crash .controls-auto {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.crash .auto-adjust,
+.crash .auto-stop {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crash .auto-stop {
+  margin-top: 20px;
+}
+
+.crash .adjust-win,
+.crash .adjust-lose,
+.crash .stop-profit,
+.crash .stop-lose,
+.crash .auto-count {
+  width: calc(50% - 3px);
+  height: 51px;
+  position: relative;
+}
+
+.crash .auto-count {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.crash .adjust-win::before,
+.crash .adjust-lose::before,
+.crash .stop-profit::before,
+.crash .stop-lose::before,
+.crash .auto-count::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #04131f 0%, #223A4e 100%);
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+}
+
+.crash .adjust-win input,
+.crash .adjust-lose input,
+.crash .stop-profit input,
+.crash .stop-lose input,
+.crash .auto-count input {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  padding: 0 0 0 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #07253b;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 25%, 100% 75%, calc(100% - 10px) 100%, 10px 100%, 0 75%, 0 25%);
+  border: none;
+}
+
+.crash .stop-profit input,
+.crash .stop-lose input {
+  padding: 0 0 0 26px;
+}
+
+.crash .adjust-win input::placeholder,
+.crash .adjust-lose input::placeholder,
+.crash .stop-profit input::placeholder,
+.crash .stop-lose input::placeholder,
+.crash .auto-count input::placeholder {
+  font-size: 11px;
+  color: #5e768e;
+}
+
+.crash .controls-auto button.button-auto,
+.crash .controls-auto button.button-stop {
+  width: 100%;
+  height: 50px;
+  margin-top: 26px;
+  filter: drop-shadow(0px 4px 25px rgba(1, 230, 169, 0.15)) drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.35));
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.crash .controls-auto button.button-stop {
+  filter: drop-shadow(0px 4px 25px rgba(252, 163, 17, 0.15)) drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.crash .controls-auto button.button-auto .button-inner,
+.crash .controls-auto button.button-stop .button-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(255deg, #00ffc2 0%, #00aa6d 100%);
+  clip-path: polygon(7px 0, calc(100% - 7px) 0, 100% 25%, 100% 75%, calc(100% - 7px) 100%, 7px 100%, 0 75%, 0 25%);
+}
+
+.crash .controls-auto button.button-stop .button-inner {
+  background: linear-gradient(255deg, #fca311 0%, #ffb703 100%);
+}
+
+@media only screen and (max-width: 1140px) {
+  .crash .crash-container {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .crash {
+    padding: 25px 10px 443px 10px;
+  }
+
+  .crash .container-data {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .crash .data-left {
+    width: 100%;
+  }
+
+  .crash .crash-controls {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+  }
+}

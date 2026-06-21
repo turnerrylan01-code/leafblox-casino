@@ -1,0 +1,141 @@
+.game-settings-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.setting-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.difficulty-selector,
+.risk-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.difficulty-btn,
+.risk-btn {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.difficulty-btn:hover:not(:disabled),
+.risk-btn:hover:not(:disabled) {
+  background: var(--bg-card);
+  border-color: var(--purple);
+  color: var(--text-primary);
+}
+
+.difficulty-btn.active,
+.risk-btn.active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: white;
+}
+
+.difficulty-btn:disabled,
+.risk-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.auto-play-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auto-play-toggle {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.auto-play-toggle:hover:not(:disabled) {
+  background: var(--bg-card);
+  border-color: var(--purple);
+  color: var(--text-primary);
+}
+
+.auto-play-toggle.active {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: white;
+}
+
+.auto-play-toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.auto-play-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-input);
+  border-radius: 8px;
+}
+
+.auto-play-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.auto-play-input label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.setting-input {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color 0.2s;
+}
+
+.setting-input:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+
+@media (max-width: 600px) {
+  .difficulty-selector,
+  .risk-selector {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,87 @@
+.game-history-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-header h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.history-empty {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.history-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 10px;
+  background: var(--bg-input);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  align-items: center;
+}
+
+.history-item.won {
+  border-left: 3px solid var(--green);
+}
+
+.history-item.lost {
+  border-left: 3px solid var(--red);
+}
+
+.history-time {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.history-bet {
+  color: var(--text-secondary);
+}
+
+.history-multiplier {
+  color: var(--purple);
+}
+
+.history-payout {
+  text-align: right;
+}
+
+.history-payout.green {
+  color: var(--green);
+}
+
+.history-payout.red {
+  color: var(--red);
+}
+
+@media (max-width: 600px) {
+  .history-item {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  
+  .history-time {
+    grid-column: 1 / -1;
+  }
+}

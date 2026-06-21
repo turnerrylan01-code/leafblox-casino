@@ -1,0 +1,165 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id              String   @id @default(cuid())
+  username        String   @unique
+  email           String?  @unique
+  walletAddress   String   @unique
+  accountStatus   String   @default("active") // active, suspended, frozen, banned
+  level           Int      @default(1)
+  xp              Int      @default(0)
+  totalWagered    Float    @default(0)
+  totalProfit     Float    @default(0)
+  balance         Float    @default(0)
+  registrationDate DateTime @default(now())
+  lastLogin       DateTime @default(now())
+  ipHistory       String   @default("")
+  internalNotes   String   @default("")
+
+  bans            Ban[]
+  mutes           Mute[]
+  tickets         SupportTicket[]
+  staff           Staff?
+
+  @@map("users")
+}
+
+model Staff {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  role        String   // owner, admin, moderator
+  addedAt     DateTime @default(now())
+  addedBy     String?
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("staff")
+}
+
+model Ban {
+  id          String   @id @default(cuid())
+  userId      String
+  type        String   // temporary, permanent
+  reason      String
+  issuedBy    String
+  issuedAt    DateTime @default(now())
+  expiresAt   DateTime?
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("bans")
+}
+
+model Mute {
+  id          String   @id @default(cuid())
+  userId      String
+  duration    String   // 5, 30, 60, 1440, permanent (minutes)
+  reason      String
+  issuedBy    String
+  issuedAt    DateTime @default(now())
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("mutes")
+}
+
+model PromoCode {
+  id                String   @id @default(cuid())
+  code              String   @unique
+  rewardAmount      Float
+  expirationDate    DateTime
+  usageLimit        Int
+  usedCount         Int      @default(0)
+  userRestrictions  String?
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  
+  @@map("promo_codes")
+}
+
+model Game {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  enabled     Boolean  @default(true)
+  houseEdge   Float
+  minBet      Float
+  maxBet      Float
+  autoPlayLimit Int
+  difficulty  String   @default("normal")
+  
+  @@map("games")
+}
+
+model SupportTicket {
+  id          String   @id @default(cuid())
+  userId      String
+  subject     String
+  status      String   @default("open") // open, pending, closed
+  priority    String   @default("medium") // high, medium, low
+  createdAt   DateTime @default(now())
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages    TicketMessage[]
+  
+  @@map("support_tickets")
+}
+
+model TicketMessage {
+  id          String   @id @default(cuid())
+  ticketId    String
+  sender      String   // user, support
+  message     String
+  createdAt   DateTime @default(now())
+  
+  ticket      SupportTicket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  
+  @@map("ticket_messages")
+}
+
+model Level {
+  id          String   @id @default(cuid())
+  level       Int      @unique
+  title       String
+  xpRequired  Int
+  reward      String
+  
+  @@map("levels")
+}
+
+model Settings {
+  id              String   @id @default(cuid())
+  siteName        String   @default("Leaf Blox")
+  siteUrl         String   @default("https://leafblox.com")
+  maintenanceMode Boolean  @default(false)
+  minDeposit      Float    @default(0.01)
+  maxDeposit      Float    @default(1000)
+  minWithdrawal   Float    @default(0.1)
+  maxWithdrawal   Float    @default(1000)
+  withdrawalFee   Float    @default(0.5)
+  twoFactorAuth   Boolean  @default(true)
+  sessionTimeout  Int      @default(30)
+  maxLoginAttempts Int     @default(5)
+  rateLimiting    Int      @default(60)
+  emailNotifications Boolean @default(true)
+  supportEmail    String   @default("support@leafblox.com")
+  
+  @@map("settings")
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  staff       String
+  action      String
+  target      String
+  reason      String
+  timestamp   DateTime @default(now())
+  
+  @@map("audit_logs")
+}

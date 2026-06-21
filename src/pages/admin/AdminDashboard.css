@@ -1,0 +1,259 @@
+.admin-dashboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-dashboard .admin-profit {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.admin-dashboard .admin-growth {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.admin-dashboard .growth-header {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-dashboard .growth-header:before {
+  content: '';
+  height: 1px;
+  position: absolute;
+  top: 16px;
+  left: 135px;
+  right: 273px;
+  background: #0c324e;
+}
+
+.admin-dashboard .header-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.admin-dashboard .header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.admin-dashboard .header-actions button {
+  margin-right: 22px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #7a93ac;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.admin-dashboard .header-actions button:last-of-type {
+  margin-right: 0;
+}
+
+.admin-dashboard .header-actions button.button-active {
+  color: #ffffff;
+}
+
+.admin-dashboard .growth-content {
+  width: 100%;
+  height: 250px;
+  margin-top: 25px;
+  border-radius: 15px;
+  background: radial-gradient(180% 125% at 50% 15%, rgba(3, 43, 79, 0) 0%, #00284b 100%);
+  border: 1px solid #123e62;
+  overflow: hidden;
+}
+
+.admin-dashboard .content-chart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: repeating-linear-gradient(#014469 0 1px, transparent 1px 100%),
+              repeating-linear-gradient(90deg, #014469 0 1px, transparent 1px 100%);
+  background-size: 7.69% 41.66px;
+}
+
+.admin-dashboard .chart-graph {
+  position: absolute;
+  top: 0;
+  bottom: -6px;
+  left: -6px;
+  right: -6px;
+}
+
+.profit-element {
+  width: calc(25% - 15px);
+  height: 155px;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.profit-element:nth-child(1),
+.profit-element:nth-child(2),
+.profit-element:nth-child(3),
+.profit-element:nth-child(4) {
+  margin-top: 0;
+}
+
+.profit-element:nth-child(4n) {
+  margin-right: 0;
+}
+
+.profit-element:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  background: linear-gradient(180deg, rgba(0, 255, 194, 0) 0%, #00ffc2 100%);
+  z-index: -1;
+}
+
+.profit-element:after {
+  content: '';
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  border-radius: 15px;
+  background: #062137;
+  z-index: -1;
+}
+
+.profit-element .profit-header {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #5e768e;
+  text-transform: uppercase;
+}
+
+.profit-element .profit-value {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(180deg, #01fabd 0%, #01b376 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profit-element .coin-icon {
+  font-size: 24px;
+  margin-right: 8px;
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+.profit-element .profit-label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8bacc8;
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #5e768e;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.error-message {
+  padding: 15px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #ef4444;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .admin-dashboard .admin-profit {
+    justify-content: center;
+  }
+
+  .profit-element {
+    width: calc(50% - 10px);
+  }
+
+  .profit-element:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .profit-element:nth-child(3) {
+    margin-top: 20px;
+  }
+
+  .profit-element:nth-child(4n) {
+    margin-right: 20px;
+  }
+
+  .profit-element:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .profit-element {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .profit-element:nth-child(2),
+  .profit-element:nth-child(3) {
+    margin-top: 20px;
+  }
+
+  .profit-element:nth-child(4n) {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .admin-dashboard .growth-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-dashboard .growth-header:before {
+    right: 0;
+  }
+
+  .admin-dashboard .header-actions {
+    margin-top: 17px;
+  }
+}
