@@ -22,7 +22,7 @@ export function MinesPage() {
   const [loading, setLoading] = useState(false);
 
   const formatValue = (value: number): string => {
-    return parseFloat(Math.floor(value / 10) / 100).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (Math.floor(value / 10) / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   const validateInput = () => {
@@ -38,7 +38,7 @@ export function MinesPage() {
     } else if (action === 'max') {
       amount = balance <= 1000000 ? balance : 1000000;
     }
-    setMinesAmount(parseFloat(Math.floor(amount / 10) / 100).toFixed(2));
+    setMinesAmount((Math.floor(amount / 10) / 100).toFixed(2));
   };
 
   const isCount = (count: number): boolean => {
@@ -205,13 +205,13 @@ export function MinesPage() {
                 onInput={validateInput}
                 type="text"
                 placeholder="BET AMOUNT"
-                disabled={game && game.state !== 'completed'}
+                disabled={game?.state !== 'completed'}
               />
               <div className="amount-buttons">
-                <button onClick={() => setAmountAction('2x')} disabled={game && game.state !== 'completed'}>
+                <button onClick={() => setAmountAction('2x')} disabled={game?.state !== 'completed'}>
                   <div className="button-inner">2x</div>
                 </button>
-                <button onClick={() => setAmountAction('max')} disabled={game && game.state !== 'completed'}>
+                <button onClick={() => setAmountAction('max')} disabled={game?.state !== 'completed'}>
                   <div className="button-inner">MAX</div>
                 </button>
               </div>

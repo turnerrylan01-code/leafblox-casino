@@ -62,7 +62,7 @@ export function LatinaTowerPage() {
     } else if (action === 'max') {
       amount = balance <= 1000000 ? balance : 1000000;
     }
-    setBetAmount(parseFloat(Math.floor(amount / 10) / 100).toFixed(2));
+    setBetAmount((Math.floor(amount / 10) / 100).toFixed(2));
   };
 
   const handleBet = () => {
@@ -225,21 +225,21 @@ export function LatinaTowerPage() {
             <button
               onClick={() => setRiskLevel('easy')}
               className={riskLevel === 'easy' ? 'button-active' : ''}
-              disabled={game && game.state !== 'completed'}
+              disabled={game?.state !== 'completed'}
             >
               <div className="button-inner">EASY</div>
             </button>
             <button
               onClick={() => setRiskLevel('medium')}
               className={riskLevel === 'medium' ? 'button-active' : ''}
-              disabled={game && game.state !== 'completed'}
+              disabled={game?.state !== 'completed'}
             >
               <div className="button-inner">MEDIUM</div>
             </button>
             <button
               onClick={() => setRiskLevel('hard')}
               className={riskLevel === 'hard' ? 'button-active' : ''}
-              disabled={game && game.state !== 'completed'}
+              disabled={game?.state !== 'completed'}
             >
               <div className="button-inner">HARD</div>
             </button>
@@ -251,13 +251,13 @@ export function LatinaTowerPage() {
               onInput={validateInput}
               type="text"
               placeholder="BET AMOUNT"
-              disabled={game && game.state !== 'completed'}
+              disabled={game?.state !== 'completed'}
             />
             <div className="amount-buttons">
-              <button onClick={() => setAmountAction('2x')} disabled={game && game.state !== 'completed'}>
+              <button onClick={() => setAmountAction('2x')} disabled={game?.state !== 'completed'}>
                 <div className="button-inner">2x</div>
               </button>
-              <button onClick={() => setAmountAction('max')} disabled={game && game.state !== 'completed'}>
+              <button onClick={() => setAmountAction('max')} disabled={game?.state !== 'completed'}>
                 <div className="button-inner">MAX</div>
               </button>
             </div>
