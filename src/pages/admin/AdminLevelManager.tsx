@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { useApp } from '../../context/AppContext';
 import { hasTag } from '../../data/tags';
 import './AdminPanel.css';
 
 export function AdminLevelManager() {
   const { walletAddress } = useAuth();
-  const { stats } = useApp();
   const [isOwner, setIsOwner] = useState(false);
   
   // Simple levels configuration
@@ -65,7 +63,7 @@ export function AdminLevelManager() {
           </div>
           <div className="stat-card">
             <div className="stat-label">Current Players</div>
-            <div className="stat-value">{stats?.level || 1}</div>
+            <div className="stat-value">0</div>
           </div>
         </div>
 

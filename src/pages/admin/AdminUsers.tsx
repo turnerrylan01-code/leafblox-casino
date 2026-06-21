@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../context/AuthContext';
 import './AdminPanel.css';
 
 export function AdminUsers() {
-  const { walletAddress } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [users, setUsers] = useState<any[]>([]);
   const [selectedUser, setSelectedUser] = useState<any>(null);

@@ -6,8 +6,8 @@ export function UpgraderPage() {
   const { balance, setBalance } = useApp();
   const [upgraderAmount, setUpgraderAmount] = useState('0.10');
   const [upgraderMode, setUpgraderMode] = useState<'under' | 'over'>('under');
-  const [chance, setChance] = useState(0);
-  const [items, setItems] = useState<any[]>([]);
+  const [chance] = useState(0);
+  const [items] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
   const validateInput = () => {
@@ -27,7 +27,7 @@ export function UpgraderPage() {
       amount = balance <= 1000000 ? balance : 1000000;
     }
 
-    setUpgraderAmount(parseFloat(Math.floor(amount / 10) / 100).toFixed(2));
+    setUpgraderAmount((Math.floor(amount / 10) / 100).toFixed(2));
   };
 
   const handleUpgrade = () => {

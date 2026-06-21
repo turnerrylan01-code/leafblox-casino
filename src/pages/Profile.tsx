@@ -13,7 +13,6 @@ export function ProfilePage() {
     totalWagered, 
     totalDeposited, 
     totalWithdrawn, 
-    level, 
     xp, 
     setUsername,
     setAvatar,

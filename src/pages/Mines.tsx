@@ -223,22 +223,22 @@ export function MinesPage() {
                 min="0"
                 max={balance / 1000}
                 step="0.01"
-                disabled={game && game.state !== 'completed'}
+                disabled={game?.state !== 'completed'}
               />
             </div>
             <div className="top-mines">
               <div className="mines-title">AMOUNT OF MINES</div>
               <div className="mines-content">
-                <button onClick={() => setMinesCount(1)} className={isCount(1) ? 'button-active' : ''} disabled={game && game.state !== 'completed'}>
+                <button onClick={() => setMinesCount(1)} className={isCount(1) ? 'button-active' : ''} disabled={game?.state !== 'completed'}>
                   <div className="button-inner">1</div>
                 </button>
-                <button onClick={() => setMinesCount(3)} className={isCount(3) ? 'button-active' : ''} disabled={game && game.state !== 'completed'}>
+                <button onClick={() => setMinesCount(3)} className={isCount(3) ? 'button-active' : ''} disabled={game?.state !== 'completed'}>
                   <div className="button-inner">3</div>
                 </button>
-                <button onClick={() => setMinesCount(5)} className={isCount(5) ? 'button-active' : ''} disabled={game && game.state !== 'completed'}>
+                <button onClick={() => setMinesCount(5)} className={isCount(5) ? 'button-active' : ''} disabled={game?.state !== 'completed'}>
                   <div className="button-inner">5</div>
                 </button>
-                <button onClick={() => setMinesCount(10)} className={isCount(10) ? 'button-active' : ''} disabled={game && game.state !== 'completed'}>
+                <button onClick={() => setMinesCount(10)} className={isCount(10) ? 'button-active' : ''} disabled={game?.state !== 'completed'}>
                   <div className="button-inner">10</div>
                 </button>
                 <div className="content-input">
@@ -249,7 +249,7 @@ export function MinesPage() {
                     max="24"
                     placeholder="..."
                     onChange={(e) => setMinesCount(parseInt(e.target.value) || 1)}
-                    disabled={game && game.state !== 'completed'}
+                    disabled={game?.state !== 'completed'}
                   />
                 </div>
               </div>

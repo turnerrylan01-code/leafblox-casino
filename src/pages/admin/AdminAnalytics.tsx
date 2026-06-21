@@ -142,7 +142,7 @@ export function AdminAnalytics() {
             <h3>User Growth</h3>
             <div className="chart-placeholder">
               <div className="chart-line">
-                {analytics.userGrowth.map((data: any, index: number) => (
+                {analytics.userGrowth.map((data: any) => (
                   <div key={data.month} className="line-point">
                     <div 
                       className="point" 
