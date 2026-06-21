@@ -5,14 +5,13 @@ import { getUserTags, ALL_TAGS } from '../data/tags';
 import './Chat.css';
 
 export function Chat() {
-  const { soundEnabled, setSoundEnabled } = useApp();
-  const { walletAddress, username } = useAuth();
+  const { walletAddress } = useAuth();
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessage, setChatMessage] = useState('');
   const [messages, setMessages] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [onlineCount, setOnlineCount] = useState(0);
-  const [rainActive, setRainActive] = useState(false);
+  const [rainActive] = useState(false);
   const [showRules, setShowRules] = useState(false);
   const [showEmojis, setShowEmojis] = useState(false);
   const chatMessagesRef = useRef<HTMLDivElement>(null);

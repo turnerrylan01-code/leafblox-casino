@@ -1,7 +1,6 @@
 import minesImage from '../assets/games/mines.png';
 import latinaTowerImage from '../assets/games/latina-tower.png';
 import coinflipImage from '../assets/games/coinflip.png';
-import rollImage from '../assets/games/roll.png';
 import crashImage from '../assets/games/crash.png';
 
 export type GameId =

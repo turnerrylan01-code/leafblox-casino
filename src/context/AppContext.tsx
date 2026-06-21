@@ -3,7 +3,7 @@ import type { GamePnLKey } from '../data/games';
 import { createDefaultStats, loadStats, saveStats, type UserStats } from '../lib/auth';
 import { sendDiscordWebhook } from '../lib/discord';
 import { useAuth } from './AuthContext';
-import { getSolanaPrice, solToUsd } from '../services/solanaPrice';
+import { getSolanaPrice } from '../services/solanaPrice';
 
 interface AppContextType {
   balance: number;

@@ -65,7 +65,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     }
   }, [ready, authenticated, refreshBalance]);
 
-  const deposit = useCallback(async (amount: number): Promise<boolean> => {
+  const deposit = useCallback(async (): Promise<boolean> => {
     // In a real casino, deposits would come from external sources
     // For now, we'll just refresh the balance
     await refreshBalance();

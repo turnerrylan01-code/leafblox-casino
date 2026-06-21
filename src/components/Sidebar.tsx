@@ -14,14 +14,12 @@ export function Sidebar() {
   const [showRules, setShowRules] = useState(false);
   const [actualOnlineCount, setActualOnlineCount] = useState(onlineCount);
   const [userLevel, setUserLevel] = useState(getLevelFromXP(0));
-  const [userStats, setUserStats] = useState<any>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (walletAddress) {
       const stats = loadStats(statsStorageKey(walletAddress));
       setUserLevel(getLevelFromXP(stats.xp));
-      setUserStats(stats);
     }
   }, [walletAddress]);
 
