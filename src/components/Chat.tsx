@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import { useApp } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
 import { getUserTags, ALL_TAGS } from '../data/tags';
 import './Chat.css';
@@ -92,7 +91,7 @@ export function Chat() {
     setMessages([...messages, {
       _id: Date.now().toString(),
       type: 'user',
-      user: { username: username || 'You', rank: 'user' },
+      user: { username: 'You', rank: 'user' },
       message: message,
     }]);
     setChatMessage('');
