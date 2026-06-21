@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useParams, Outlet } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Battles.css';
 
 interface Game {
@@ -34,15 +34,6 @@ interface Box {
 
 export function BattlesPage() {
   const [filterSort, setFilterSort] = useState('price');
-  const [selectedBoxes, setSelectedBoxes] = useState<Box[]>([]);
-  const [filterMode, setFilterMode] = useState('1v1');
-  const [filterType, setFilterType] = useState('standard');
-  const [filterLevel, setFilterLevel] = useState(0);
-  const [filterFunding, setFilterFunding] = useState(0);
-  const [filterPrivate, setFilterPrivate] = useState(false);
-  const [filterAffiliate, setFilterAffiliate] = useState(false);
-  const [filterCursed, setFilterCursed] = useState(false);
-  const [filterTerminal, setFilterTerminal] = useState(false);
   const { gameId } = useParams();
 
   const boxes: Box[] = [
@@ -87,7 +78,7 @@ export function BattlesPage() {
   ];
 
   const formatValue = (value: number): string => {
-    return parseFloat(Math.floor(value / 10) / 100).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (Math.floor(value / 10) / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   const getFilteredGames = () => {
@@ -102,19 +93,6 @@ export function BattlesPage() {
 
   const getTotalAmount = () => {
     return games.reduce((sum, game) => sum + game.amount, 0);
-  };
-
-  const getPlayerCount = () => {
-    let count = 2;
-    if (filterMode === '2v2' || filterMode === '1v1v1v1') count = 4;
-    else if (filterMode === '1v1v1') count = 3;
-    return count;
-  };
-
-  const getCost = () => {
-    let cost = selectedBoxes.reduce((sum, box) => sum + box.amount, 0);
-    cost = Math.floor(cost + (cost * getPlayerCount() * filterFunding / 100));
-    return cost;
   };
 
   const getMode = (game: Game) => {
@@ -147,14 +125,6 @@ export function BattlesPage() {
     if (level >= 76 && level < 100) return 'red';
     if (level >= 100) return 'purple';
     return '';
-  };
-
-  const handleBoxAdd = (box: Box) => {
-    setSelectedBoxes([...selectedBoxes, box]);
-  };
-
-  const handleBoxRemove = (boxId: string) => {
-    setSelectedBoxes(selectedBoxes.filter((b) => b._id !== boxId));
   };
 
   if (gameId) {

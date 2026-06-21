@@ -28,7 +28,7 @@ export function DuelsPage() {
       amount = Math.floor(balance / 10);
     }
 
-    setDuelsAmount(parseFloat(amount / 100).toFixed(2));
+    setDuelsAmount((amount / 100).toFixed(2));
   };
 
   const handleCreate = () => {
@@ -55,7 +55,7 @@ export function DuelsPage() {
   };
 
   const formatValue = (value: number): string => {
-    return parseFloat(Math.floor(value / 10) / 100).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (Math.floor(value / 10) / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   const getStats = () => {

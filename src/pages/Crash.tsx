@@ -24,15 +24,13 @@ export function CrashPage() {
   const [crashMode, setCrashMode] = useState<'manual' | 'auto'>('manual');
   const [game, setGame] = useState<GameState | null>(null);
   const [bets, setBets] = useState<Bet[]>([]);
-  const [timer, setTimer] = useState(0);
   const [timerText, setTimerText] = useState('STARTING IN 20.00s');
   const [multiplier, setMultiplier] = useState(1.0001);
   const [loading, setLoading] = useState(false);
   const [hasBet, setHasBet] = useState(false);
   const [userBet, setUserBet] = useState<Bet | null>(null);
 
-  const timerRef = useRef<number | null>(null);
-  const runRef = useRef<number | null>(null);
+  const runRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const validateInput = () => {
     let value = crashAmount.replace(',', '.').replace(/[^\d.]/g, '');
@@ -52,14 +50,14 @@ export function CrashPage() {
     }
 
     if (value === 'crashAmount') {
-      setCrashAmount(parseFloat(Math.floor(amount / 10) / 100).toFixed(2));
+      setCrashAmount((Math.floor(amount / 10) / 100).toFixed(2));
     } else {
-      setCrashAutoCashout(parseFloat(Math.floor(amount / 10) / 100).toFixed(2));
+      setCrashAutoCashout((Math.floor(amount / 10) / 100).toFixed(2));
     }
   };
 
   const formatValue = (value: number): string => {
-    return parseFloat(Math.floor(value / 10) / 100).toFixed(2).toString();
+    return (Math.floor(value / 10) / 100).toFixed(2);
   };
 
   const startTimer = () => {
@@ -69,10 +67,8 @@ export function CrashPage() {
     const timeLeft = (timeEnding - Date.now()) / 1000;
 
     if (timeLeft <= 0) {
-      setTimer(0);
       setTimerText('PENDING...');
     } else {
-      setTimer(timeLeft);
       setTimerText('STARTING IN ' + timeLeft.toFixed(2) + 's');
     }
   };
@@ -152,7 +148,6 @@ export function CrashPage() {
         setTimeout(() => {
           clearInterval(runInterval);
           setGame(prev => prev ? { ...prev, state: 'completed' } : null);
-          setTimer(0);
           setTimerText('PENDING...');
           
           if (userBet && !userBet.payout) {
@@ -175,7 +170,7 @@ export function CrashPage() {
 
   const getPlayerCount = () => {
     const players = new Set(bets.map(b => b._id));
-    return players.length;
+    return players.size;
   };
 
   const getBetsAmount = () => {
@@ -218,14 +213,14 @@ export function CrashPage() {
                   {game.state === 'completed' ? (
                     <div className="inner-completed">
                       <div className="completed-multiplier">
-                        {parseFloat(game.outcome / 100).toFixed(2)}
+                        {(game.outcome / 100).toFixed(2)}
                       </div>
                       <div className="completed-over">ROUND OVER</div>
                     </div>
                   ) : game.state === 'rolling' ? (
                     <div className="inner-rolling">
                       <div className="rolling-multiplier">
-                        <span className="gradient-green">{parseFloat(Math.floor(multiplier / 1000) / 100).toFixed(2)}</span>
+                        <span className="gradient-green">{(Math.floor(multiplier / 1000) / 100).toFixed(2)}</span>
                       </div>
                       <div className="rolling-payout">CURRENT PAYOUT</div>
                       {hasBet && userBet && !userBet.payout && (

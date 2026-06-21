@@ -34,7 +34,7 @@ export function LatinaTowerPage() {
   };
 
   const formatValue = (value: number): string => {
-    return parseFloat(Math.floor(value / 10) / 100).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (Math.floor(value / 10) / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   const getRowCashout = (row: number): number => {

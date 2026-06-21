@@ -10,7 +10,6 @@ const FULL_IMAGE_GAMES = new Set(['mines', 'latina-tower', 'coinflip', 'crash'])
 export function HomePage() {
   const { walletAddress } = useAuth();
   const { username, avatar } = useApp();
-  const [shakingLock, setShakingLock] = useState<string | null>(null);
   const [userStats, setUserStats] = useState<any>(null);
 
   useEffect(() => {
