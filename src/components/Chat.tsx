@@ -109,7 +109,7 @@ export function Chat() {
   };
 
   const getUserTag = (wallet: string) => {
-    const tags = getUserTags(wallet, email);
+    const tags = getUserTags(wallet, email || undefined);
     if (tags.length === 0) return null;
     const tagId = tags[0];
     return ALL_TAGS.find(tag => tag.id === tagId);

@@ -22,7 +22,7 @@ export const ALL_TAGS: Tag[] = [
 ];
 
 export interface UserTags {
-  walletAddress: string;
+  walletAddress?: string;
   email?: string;
   ownedTagIds: string[];
 }
