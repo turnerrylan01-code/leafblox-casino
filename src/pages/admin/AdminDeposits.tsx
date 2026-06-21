@@ -11,7 +11,7 @@ export function AdminDeposits() {
 
   const loadDeposits = () => {
     // Load real deposit data from localStorage
-    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
     const depositsData: any[] = [];
 
     allUsers.forEach(key => {
@@ -19,10 +19,10 @@ export function AdminDeposits() {
         const userData = JSON.parse(localStorage.getItem(key) || '{}');
         if (userData.totalDeposited > 0) {
           depositsData.push({
-            id: key.replace('user_stats_', ''),
+            id: key.replace('endfun_stats_', ''),
             user: userData.username || 'Unknown',
             amount: userData.totalDeposited,
-            txid: key.replace('user_stats_', ''),
+            txid: key.replace('endfun_stats_', ''),
             status: 'completed',
             date: new Date().toISOString().split('T')[0]
           });

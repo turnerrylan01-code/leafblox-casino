@@ -15,16 +15,16 @@ export function AdminSecurity() {
     const storedAuditLogs = JSON.parse(localStorage.getItem('admin_audit_logs') || '[]');
     
     // Load real roles data from localStorage
-    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
     const roleCounts: any = { owner: 0, admin: 0, moderator: 0, support: 0 };
     
     allUsers.forEach(key => {
       try {
         // Count users by role based on tags
-        if (hasTag(key.replace('user_stats_', ''), 'owner')) roleCounts.owner++;
-        else if (hasTag(key.replace('user_stats_', ''), 'admin')) roleCounts.admin++;
-        else if (hasTag(key.replace('user_stats_', ''), 'moderator')) roleCounts.moderator++;
-        else if (hasTag(key.replace('user_stats_', ''), 'support')) roleCounts.support++;
+        if (hasTag(key.replace('endfun_stats_', ''), 'owner')) roleCounts.owner++;
+        else if (hasTag(key.replace('endfun_stats_', ''), 'admin')) roleCounts.admin++;
+        else if (hasTag(key.replace('endfun_stats_', ''), 'moderator')) roleCounts.moderator++;
+        else if (hasTag(key.replace('endfun_stats_', ''), 'support')) roleCounts.support++;
       } catch (e) {
         console.error('Error parsing user data:', e);
       }

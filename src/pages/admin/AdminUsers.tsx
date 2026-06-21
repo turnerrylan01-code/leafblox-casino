@@ -14,13 +14,13 @@ export function AdminUsers() {
 
   const loadUsers = () => {
     // Load users from localStorage
-    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
     const usersData = allUsers.map(key => {
       try {
         const userData = JSON.parse(localStorage.getItem(key) || '{}');
         return {
-          id: key.replace('user_stats_', ''),
-          walletAddress: key.replace('user_stats_', ''),
+          id: key.replace('endfun_stats_', ''),
+          walletAddress: key.replace('endfun_stats_', ''),
           ...userData
         };
       } catch (e) {
@@ -51,7 +51,7 @@ export function AdminUsers() {
     if (isNaN(amount) || amount <= 0) return;
 
     // Update user balance in localStorage
-    const userKey = `user_stats_${selectedUser.walletAddress}`;
+    const userKey = `endfun_stats_${selectedUser.walletAddress}`;
     const userData = JSON.parse(localStorage.getItem(userKey) || '{}');
     userData.balance = (userData.balance || 0) + amount;
     localStorage.setItem(userKey, JSON.stringify(userData));
@@ -67,7 +67,7 @@ export function AdminUsers() {
     
     if (confirm(`Are you sure you want to ban ${selectedUser.username}?`)) {
       // Mark user as banned in localStorage
-      const userKey = `user_stats_${selectedUser.walletAddress}`;
+      const userKey = `endfun_stats_${selectedUser.walletAddress}`;
       const userData = JSON.parse(localStorage.getItem(userKey) || '{}');
       userData.isBanned = true;
       localStorage.setItem(userKey, JSON.stringify(userData));
@@ -84,7 +84,7 @@ export function AdminUsers() {
     
     if (confirm(`Are you sure you want to mute ${selectedUser.username}?`)) {
       // Mark user as muted in localStorage
-      const userKey = `user_stats_${selectedUser.walletAddress}`;
+      const userKey = `endfun_stats_${selectedUser.walletAddress}`;
       const userData = JSON.parse(localStorage.getItem(userKey) || '{}');
       userData.isMuted = true;
       localStorage.setItem(userKey, JSON.stringify(userData));

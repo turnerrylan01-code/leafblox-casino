@@ -11,7 +11,7 @@ export function AdminWithdrawals() {
 
   const loadWithdrawals = () => {
     // Load real withdrawal data from localStorage
-    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
     const withdrawalsData: any[] = [];
 
     allUsers.forEach(key => {
@@ -19,10 +19,10 @@ export function AdminWithdrawals() {
         const userData = JSON.parse(localStorage.getItem(key) || '{}');
         if (userData.totalWithdrawn > 0) {
           withdrawalsData.push({
-            id: key.replace('user_stats_', ''),
+            id: key.replace('endfun_stats_', ''),
             user: userData.username || 'Unknown',
             amount: userData.totalWithdrawn,
-            address: key.replace('user_stats_', ''),
+            address: key.replace('endfun_stats_', ''),
             status: 'completed',
             date: new Date().toISOString().split('T')[0]
           });

@@ -79,7 +79,7 @@ export function AdminVIP() {
       localStorage.setItem('vip_tiers_config', JSON.stringify(defaultVipTiers));
       
       // Calculate real member counts from user data
-      const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+      const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
       allUsers.forEach(key => {
         try {
           const userData = JSON.parse(localStorage.getItem(key) || '{}');

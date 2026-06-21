@@ -10,7 +10,7 @@ export function AdminGames() {
 
   const loadGames = () => {
     // Load real game statistics from localStorage
-    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
     
     // Initialize game stats
     const gameStats: any = {

@@ -16,7 +16,7 @@ export function AdminChat() {
     setMessages(storedMessages);
 
     // Load real muted users from localStorage
-    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
     const mutedUsersData: any[] = [];
 
     allUsers.forEach(key => {
@@ -24,7 +24,7 @@ export function AdminChat() {
         const userData = JSON.parse(localStorage.getItem(key) || '{}');
         if (userData.isMuted) {
           mutedUsersData.push({
-            id: key.replace('user_stats_', ''),
+            id: key.replace('endfun_stats_', ''),
             user: userData.username || 'Unknown',
             reason: 'Muted by admin',
             mutedUntil: 'Permanent'

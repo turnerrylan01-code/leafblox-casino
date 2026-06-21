@@ -17,7 +17,7 @@ export function AdminDashboard() {
   useEffect(() => {
     // Load stats from localStorage
     const loadStats = () => {
-      const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+      const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
       const totalUsers = allUsers.length;
       
       // Calculate totals from all users
@@ -66,7 +66,7 @@ export function AdminDashboard() {
       const activities: any[] = [];
       
       // Get recent bets/wins from user data
-      const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+      const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
       
       allUsers.forEach(key => {
         try {

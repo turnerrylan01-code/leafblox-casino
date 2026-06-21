@@ -15,7 +15,7 @@ export function AdminAnalytics() {
 
   const loadAnalytics = () => {
     // Load real analytics data from localStorage
-    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('user_stats_'));
+    const allUsers = Object.keys(localStorage).filter(key => key.startsWith('endfun_stats_'));
     
     // Calculate game popularity
     const gameStats: any = {
