@@ -22,11 +22,11 @@ const ChatContext = createContext<ChatContextType | null>(null);
 export function ChatProvider({ children }: { children: ReactNode }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [onlineCount] = useState(40);
-  const { walletAddress } = useAuth();
+  const { walletAddress, email } = useAuth();
 
   const sendMessage = useCallback((text: string, username: string, avatar: string) => {
     if (!text.trim()) return;
-    const ownedTagIds = getUserTags(walletAddress || '');
+    const ownedTagIds = getUserTags(walletAddress || '', email || undefined);
     const ownedTags = ALL_TAGS.filter(tag => ownedTagIds.includes(tag.id));
     const rank = ownedTags.map(tag => `${tag.emoji} ${tag.name}`).join(' ') || '';
     const msg: ChatMessage = {
@@ -38,7 +38,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
       timestamp: Date.now(),
     };
     setMessages(prev => [...prev.slice(-99), msg]);
-  }, [walletAddress]);
+  }, [walletAddress, email]);
 
   return (
     <ChatContext.Provider value={{ messages, sendMessage, onlineCount }}>

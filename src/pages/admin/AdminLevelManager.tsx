@@ -4,7 +4,7 @@ import { hasTag } from '../../data/tags';
 import './AdminPanel.css';
 
 export function AdminLevelManager() {
-  const { walletAddress } = useAuth();
+  const { walletAddress, email } = useAuth();
   const [isOwner, setIsOwner] = useState(false);
   
   // Simple levels configuration
@@ -20,12 +20,12 @@ export function AdminLevelManager() {
 
   useEffect(() => {
     // Check if user has Owner role
-    if (walletAddress && hasTag(walletAddress, 'owner')) {
+    if (walletAddress && hasTag(walletAddress, 'owner', email || undefined)) {
       setIsOwner(true);
     } else {
       setIsOwner(false);
     }
-  }, [walletAddress]);
+  }, [walletAddress, email]);
 
   if (!isOwner) {
     return (

@@ -4,7 +4,7 @@ import { getUserTags, ALL_TAGS } from '../data/tags';
 import './Chat.css';
 
 export function Chat() {
-  const { walletAddress } = useAuth();
+  const { walletAddress, email } = useAuth();
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessage, setChatMessage] = useState('');
   const [messages, setMessages] = useState<any[]>([]);
@@ -109,7 +109,7 @@ export function Chat() {
   };
 
   const getUserTag = (wallet: string) => {
-    const tags = getUserTags(wallet);
+    const tags = getUserTags(wallet, email);
     if (tags.length === 0) return null;
     const tagId = tags[0];
     return ALL_TAGS.find(tag => tag.id === tagId);

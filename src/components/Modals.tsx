@@ -143,10 +143,10 @@ export function ComingSoonModal() {
 
 export function TagsModal() {
   const { showTagsModal, setShowTagsModal } = useApp();
-  const { walletAddress } = useAuth();
+  const { walletAddress, email } = useAuth();
   if (!showTagsModal) return null;
 
-  const ownedTagIds = getUserTags(walletAddress || '');
+  const ownedTagIds = getUserTags(walletAddress || '', email || undefined);
 
   const roleTags = ALL_TAGS.filter(t => t.category === 'role');
   const wageredTags = ALL_TAGS.filter(t => t.category === 'wagered');

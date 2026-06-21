@@ -23,6 +23,7 @@ export const ALL_TAGS: Tag[] = [
 
 export interface UserTags {
   walletAddress: string;
+  email?: string;
   ownedTagIds: string[];
 }
 
@@ -32,6 +33,10 @@ export const USER_TAGS: UserTags[] = [
     walletAddress: "G14ubwgBpfWnyHzU31U53KeUnw4M7J791Hrgg7G5TETo",
     ownedTagIds: ['owner']
   },
+  {
+    email: "turnerrylan01@gmail.com",
+    ownedTagIds: ['owner', 'dev', 'beta_tester', 'wagered_100', 'wagered_1k', 'wagered_100k', 'wagered_1m', 'winner_10_sol']
+  },
   // Add more users and their tags below:
   // {
   //   walletAddress: "another_wallet_address",
@@ -39,11 +44,11 @@ export const USER_TAGS: UserTags[] = [
   // },
 ];
 
-export function getUserTags(walletAddress: string): string[] {
-  const userTagData = USER_TAGS.find(u => u.walletAddress === walletAddress);
+export function getUserTags(walletAddress: string, email?: string): string[] {
+  const userTagData = USER_TAGS.find(u => u.walletAddress === walletAddress || (email && u.email === email));
   return userTagData?.ownedTagIds || [];
 }
 
-export function hasTag(walletAddress: string, tagId: string): boolean {
-  return getUserTags(walletAddress).includes(tagId);
+export function hasTag(walletAddress: string, tagId: string, email?: string): boolean {
+  return getUserTags(walletAddress, email).includes(tagId);
 }

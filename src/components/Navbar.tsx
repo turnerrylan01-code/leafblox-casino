@@ -12,7 +12,7 @@ export function Navbar() {
     balance, setShowDeposit, setShowWithdraw,
     solanaPrice, currency, setShowCurrencyModal,
   } = useApp();
-  const { logout, walletAddress } = useAuth();
+  const { logout, walletAddress, email } = useAuth();
   const [gamesOpen, setGamesOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [sidebarMobile, setSidebarMobile] = useState<'Chat' | 'Navbar' | null>(null);
@@ -23,7 +23,7 @@ export function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isOwner = walletAddress && hasTag(walletAddress, 'owner');
+  const isOwner = walletAddress && hasTag(walletAddress, 'owner', email || undefined);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {

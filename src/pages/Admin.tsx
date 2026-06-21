@@ -24,14 +24,14 @@ const OWNER_ONLY_SECTIONS = [
 ];
 
 export function AdminPage() {
-  const { walletAddress } = useAuth();
+  const { walletAddress, email } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const userTags = getUserTags(walletAddress || '');
+  const userTags = getUserTags(walletAddress || '', email || undefined);
   const isAdmin = userTags.includes('owner') || userTags.includes('dev');
-  const isOwner = hasTag(walletAddress || '', 'owner');
+  const isOwner = hasTag(walletAddress || '', 'owner', email || undefined);
 
   if (!isAdmin) {
     return (

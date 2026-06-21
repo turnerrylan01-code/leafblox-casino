@@ -5,7 +5,7 @@ import { LEVELS, loadStats, saveStats, statsStorageKey } from '../lib/auth';
 import './LevelAdmin.css';
 
 export function LevelAdminPage() {
-  const { walletAddress } = useAuth();
+  const { walletAddress, email } = useAuth();
   const [targetWallet, setTargetWallet] = useState('');
   const [selectedLevel, setSelectedLevel] = useState(LEVELS[0].name);
   const [message, setMessage] = useState('');
@@ -13,9 +13,9 @@ export function LevelAdminPage() {
 
   useEffect(() => {
     if (walletAddress) {
-      setIsOwner(hasTag(walletAddress, 'owner'));
+      setIsOwner(hasTag(walletAddress, 'owner', email || undefined));
     }
-  }, [walletAddress]);
+  }, [walletAddress, email]);
 
   const handleSetLevel = () => {
     if (!targetWallet.trim()) {
